@@ -1,12 +1,13 @@
-# Project Report
-## Introduction and Background
-## Problem Definition
-## Methods
-## Results and Discussion
-## Gantt Chart
-## Contribution Table
-## References
+# Optimizing Attribute Selection for 3D Model Popularity Prediction using Clustering and Machine Learning
+## Project Report
+### Introduction and Background
+### Problem Definition
+### Methods
+### Results and Discussion
+### Gantt Chart
+### Contribution Table
+### References
 
-# Video Presentation
+## Video Presentation
 
-# GitHub Repository
+## GitHub Repository
