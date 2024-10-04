@@ -9,6 +9,7 @@ Studies have shown the effectiveness of content-based methods in organizing and 
 Our dataset provides a well-organized structure capturing information about 3D models, such as names, URLs, pricing, and user engagement metrics like comments and likes. This format allows for efficient retrieval and analysis of model recommendations, tailored for further use in ML model training workflows.\
 <br>
 <a href="https://drive.google.com/file/d/1jdKMc4G1djuLWZy0UvU5rw932eBVn5Q7/view?usp=drive"> Link to Dataset </a>\
+<br>
 <a href="https://3dsky.org/3dmodels"> Link to data source </a>
 
 ### Problem Definition and Motivation
