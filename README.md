@@ -8,17 +8,30 @@ Studies have shown the effectiveness of content-based methods in organizing and 
 ### Dataset Description
 The output dataset provides a well-organized structure capturing essential information about 3D models, such as their names, URLs, pricing, and user engagement metrics like comments and likes. This structured format allows for efficient retrieval and analysis of model recommendations, tailored for further use in ml model training workflows.
 
-### Problem Definition
-
+### Problem Definition and Motivation
+With the increasing implementations of 3D model repositories and virtual asset marketing, there is a growing need for efficient market prediction methods. Product publishers need a reliable method to determine the popularity of newly published products based on specific attributes. The aim of this project is to develop a machine learning model capable of predicting the most optimal combination of attributes that maximizes model popularity based on available data. 
 
 ### Methods
+#### Data Preprocessing Methods
+1. Standardization: Standardization transforms each feature to have a mean of 0 and standard deviation of 1. We will use this technique to pre-process our datasets such that our model will perform better. Furthermore, it will ensure that some attributes like product price (with wide range) do not dominate other attributes like product name or product ratings.
+2. One-Hot Encoding: Categorical variables (product categories, brands, etc.) are converted into a binary matrix. No ordinal relationship is considered between categories. We will use this method to pre-process our data for performance enhancement of our model.
+3. Imputation: Imputation pre-processing technique will ensure completeness of data. The size of dataset can be optimally reduced, thus ensuring better performance.
 
+#### Machine Learning Models
+1. Convolutional Neural Networks (CNNs): CNNs are one of the primary deep learning architectures for image recognition. In addition, this architecture is characterized by having subsampling and convolutional layers and the training process updates the kernel weights. It is noted that convolutional neural networks are effective at extracting local features in images.
+2. Multi-Input Neural Networks: While the image data is fed to a CNN, the non-image data can be fed to another neural network. The outputs of both neural networks can then be fed to an activation layer for classification.
+3. K-Means: We will be using this technique to group the attributes of products into clusters, based on their role in determining the popularity of the products to be published in an online portal. This will help identify which attributes/tags are more important for maximizing product popularity. 
 
-### Results and Discussion
+### Expected Results and Discussion
+The model is expected to deliver high accuracy, precision, and a low RMSE, which together will indicate the effectiveness of attribute selection in predicting 3D model popularity. Multiple quantitative metrics will be implemented to assess the model’s performance.  
 
+1. Accuracy will provide a generalized assessment by measuring correct predictions over total predictions.  
+2. Precision will aim to minimize the false positives ensuring that 3D models not likely to become popular (and specific attributes) are not recommended. Alongside precision, recall will aim to reduce false negatives to make sure popular models and attributes are not overlooked. Then, an F1 score will be calculated as a harmonic mean to provide a balanced evaluation metric.  
+3. A confusion matrix will aid in analyzing true positives, true negatives, false positives, and false negatives, offering a detailed look into where the model’s strengths (in prediction) are and what areas need improvement.  
+4. Root mean squared error will assess the difference between predicted and actual popularity scores to see how the model handles outputs. A lower RMSE will indicate close predictions while a higher RMSE will indicate which inputs would point to areas of improvement for the model.  
 
 ### Gantt Chart
-<a href="www.google.com"> Link to Gantt Chart </a>
+<a href="https://gtvault.sharepoint.com/:x:/s/MachineLearningCS7641/EaLiTgVlemVKnLifPSGEGbMBKy4zsQolP880C8xhN7b61g?e=wzoIbL"> Link to Gantt Chart </a>
 
 ### Contribution Table
 
