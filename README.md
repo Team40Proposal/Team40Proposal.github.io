@@ -1,15 +1,18 @@
 # Optimizing Attribute Selection for 3D Model Popularity Prediction
 ## Project Report
 ### Introduction and Background
-With the expansion of 3D digital content creation landscape, many established model repositories and markets are evolving, so the need for data-driven approaches to optimize decision making has become increasingly critical. The choice of proper tags like product name, product price, etc to maximize the model popularity therefore becomes a crucial need.\
+With the expansion of 3D digital content creation, many model repositories and markets are evolving, so the need for data-driven approaches to optimize decision making has become increasingly critical. The choice of tags like product name, price, etc. to maximize model popularity is therefore crucial.\
 <br>
-Studies have shown the effectiveness of content-based methods in organizing and retrieving 3D models, particularly when leveraging metadata and semantic features to enhance classification [1], [2]. In this project, we will utilize popular ML models and techniques to automate the process of decision making on attributes associations. By analyzing metadata (the existing tags associated with products), the proposed system will be able to predict the optimal attributes for new models. This in turn, will provide product publishers insights into the factors driving model popularity, facilitating better decision-making and enhancing content marketing strategies [3], [4]​.
+Studies have shown the effectiveness of content-based methods in organizing and retrieving 3D models, particularly when leveraging metadata and semantic features to enhance classification [1], [2]. We will utilize popular ML models and techniques to automate decision making on attributes associations. By analyzing metadata (products' existing description tags), the system will be able to predict the optimal attributes for new models. This will provide product publishers insights into the factors driving model popularity, facilitating better decision-making and enhancing content marketing strategies [3], [4]​.
 
 ### Dataset Description
-The output dataset provides a well-organized structure capturing essential information about 3D models, such as their names, URLs, pricing, and user engagement metrics like comments and likes. This structured format allows for efficient retrieval and analysis of model recommendations, tailored for further use in ml model training workflows.
+Our dataset provides a well-organized structure capturing information about 3D models, such as names, URLs, pricing, and user engagement metrics like comments and likes. This format allows for efficient retrieval and analysis of model recommendations, tailored for further use in ML model training workflows.\
+<br>
+<a href="https://drive.google.com/file/d/1jdKMc4G1djuLWZy0UvU5rw932eBVn5Q7/view?usp=drive"> Link to Dataset </a>\
+<a href="https://3dsky.org/3dmodels"> Link to data source </a>
 
 ### Problem Definition and Motivation
-With the increasing implementations of 3D model repositories and virtual asset marketing, there is a growing need for efficient market prediction methods. Product publishers need a reliable method to determine the popularity of newly published products based on specific attributes. The aim of this project is to develop a machine learning model capable of predicting the most optimal combination of attributes that maximizes model popularity based on available data. 
+With the increasing implementations of 3D model repositories and virtual asset marketing, there is a growing need for efficient market prediction methods. Product publishers need a reliable method to determine the popularity of newly published products. We aim to develop a ML model capable of predicting the optimal combination of attributes that maximizes model popularity based on available data. 
 
 ### Methods
 #### Data Preprocessing Methods
@@ -61,6 +64,7 @@ The model is expected to deliver high accuracy, precision, and a low RMSE, which
 [8] L. Linhui, J. Weinpeng, W. Huihui, "Extracting the Forest Type From Remote Sensing Images by Random Forest", *IEEE*, Dec. 2020, 10.1109/JSEN.2020.3045501\
 
 ## Video Presentation
+<a href="google.com"> Link to Video Presentation </a>
 
 ## GitHub Repository
 <a href="https://github.com/kamyar94/Team40_L7641_Fall2024"> Link to GitHub Repository </a>
