@@ -13,7 +13,7 @@
 
 
 ### Gantt Chart
-[Link to Gantt Chart] ()
+<a href="www.google.com"> Link to Gantt Chart </a>
 
 ### Contribution Table
 
