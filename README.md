@@ -1,4 +1,4 @@
-# Optimizing Attribute Selection for 3D Model Popularity Prediction using Clustering and Machine Learning
+# Optimizing Attribute Selection for 3D Model Popularity Prediction
 ## Project Report
 ### Introduction and Background
 ### Problem Definition
