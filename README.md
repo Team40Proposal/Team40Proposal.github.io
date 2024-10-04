@@ -26,7 +26,7 @@
 | Max Pan | Methods, Results, Gantt Chart |
 
 ### References
-
+[1] Y. Yang, H. Lin., and Y. Zhang, "Content-Based 3D Model Retrieval: A Survey," *IEEE Trans. Syst., Man, Cybern. C,* vol. 37, no. 6, pp. 1081-1098, Nov. 2007, doi: 10.1109/TSMCC.2007.905756
 
 ## Video Presentation
 
