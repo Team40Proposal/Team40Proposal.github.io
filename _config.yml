@@ -1,5 +1,5 @@
 remote_theme: pages-themes/cayman@v0.2.0
 plugins:
 - jekyll-remote-theme
-title: Team 40's Initial Proposal
-description: Our team's initial proposal for our machine learning project.
+title: Optimizing Attribute Selection for 3D Model Popularity Prediction using Clustering and Machine Learning
+description: Initial Proposal, Team 40
