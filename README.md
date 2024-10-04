@@ -1,7 +1,10 @@
 # Optimizing Attribute Selection for 3D Model Popularity Prediction
 ## Project Report
 ### Introduction and Background
-
+With the expansion of 3D digital content creation landscape, many established model repositories and markets are evolving, so the need for data-driven approaches to optimize decision making has become increasingly critical. The choice of proper tags like product name, product price, etc to maximize the model popularity therefore becomes a crucial need.\
+<br>
+Studies have shown the effectiveness of content-based methods in organizing and retrieving 3D models, particularly when leveraging metadata and semantic features to enhance classification [1], [2]. In this project, we will utilize popular ML models and techniques to automate the process of decision making on attributes associations. By analyzing metadata (the existing tags associated with products), the proposed system will be able to predict the optimal attributes for new models. This in turn, will provide product publishers insights into the factors driving model popularity, facilitating better decision-making and enhancing content marketing strategies [3], [4]​.\
+<br>
 
 ### Problem Definition
 
