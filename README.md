@@ -1,19 +1,19 @@
 # Optimizing Attribute Selection for 3D Model Popularity Prediction
 ## Project Report
 ### Introduction and Background
-With the expansion of 3D digital content creation, many model repositories and markets are evolving, the need for data-driven approaches to optimize decision-making has become increasingly critical. The choice of tags like product name, price, etc. to maximize model popularity is therefore crucial.\
+With the expansion of 3D digital content creation, many model repositories and markets are evolving. The need for data-driven approaches to optimize decision-making has become increasingly critical. The choice of tags like product name, price, etc. to maximize model popularity is crucial.\
 <br>
-Studies have shown the effectiveness of content-based methods in organizing and retrieving 3D models, particularly when leveraging metadata and semantic features to enhance classification [1], [2]. We will utilize popular ML models to automate decision making on attributes associations. By analyzing metadata (products' existing description tags), the system will predict the optimal attributes for new models. This provides product publishers with insights into the factors driving model popularity, facilitating better decision-making and enhancing content marketing strategies [3], [4]​.
+Studies show the effectiveness of content-based methods in organizing and retrieving 3D models and leveraging metadata/semantic features to enhance classification [1][2]. We will utilize ML models to automate decision making on attribute associations. By analyzing metadata (products' existing description tags), our system will predict the optimal attributes for new models. This provides publishers with insights into the factors driving product popularity, facilitating better decision-making and enhancing content marketing strategies [3][4].
 
 ### Dataset Description
-Our dataset provides well-organized, structured information about 3D models, like names, URLs, pricing, and user engagement metrics (comments and likes). This format allows for efficient retrieval and analysis of model recommendations, tailored for further use in ML model training workflows. This data was ethically obtained in compliance with 3dsky's robots.txt file.\
+Our dataset provides well-organized, structured information about 3D models, like names, URLs, pricing, and user engagement metrics (comments and likes). This format allows for efficient retrieval and analysis of model recommendations, tailored for further use in ML model training workflows. This data was ethically obtained in compliance with 3dsky's robots.txt.\
 <br>
 <a href="https://drive.google.com/file/d/1jdKMc4G1djuLWZy0UvU5rw932eBVn5Q7/view?usp=drive"> Link to Dataset </a>\
 <br>
-<a href="https://3dsky.org/3dmodels"> Link to data source </a>
+<a href="https://3dsky.org/3dmodels"> Link to Data Source </a>
 
 ### Problem Definition and Motivation
-With the increasing implementations of 3D model repositories and virtual asset marketing, there is a growing need for efficient market prediction methods. Publishers need a reliable method to determine the popularity of newly published products. We will develop a ML model capable of predicting the optimal combination of attributes that maximizes model popularity based on available data. 
+With increasing implementation of 3D model repositories and virtual asset marketing, there is a growing need for efficient market prediction methods. Publishers need reliable methods to determine the popularity of newly published products. We will develop an architecture capable of predicting the optimal combination of attributes that maximizes model popularity. 
 
 ### Methods
 #### Data Preprocessing Methods
@@ -27,12 +27,14 @@ With the increasing implementations of 3D model repositories and virtual asset m
 3. K-Means: This technique will group the attributes of products into clusters, based on their role in determining the popularity of the published products. This will help identify which attributes are more important for optimizing popularity. 
 
 ### Expected Results and Discussion
-The model is expected to deliver high accuracy, precision, and low RMSE, which indicates the effectiveness of attribute selection in predicting product popularity. Multiple assessment metrics will be implemented.
+The model is expected to deliver high accuracy/precision and low RMSE which indicates the effectiveness of attribute selection in predicting product popularity. Multiple assessment metrics will be implemented.
 
 1. Accuracy provides a generalized assessment by measuring correct predictions over total predictions.  
 2. Precision minimizes false positives, ensuring that 3D models not likely to become popular (and specific attributes) are not recommended. Recall reduces false negatives to make sure popular models and attributes are not overlooked. An F1 score will be calculated as a harmonic mean to provide a balanced evaluation metric.
-3. A confusion matrix will help analyze true/false positives/negatives, offering a detailed look into the model’s strengths (in prediction) and what areas need improvement.  
+3. A confusion matrix will help analyze true/false positives/negatives, offering a look into the model’s strengths and areas of improvement.  
 4. Root mean squared error assesses the difference between predicted and actual popularity scores to see how the model handles outputs. Lower RMSE indicates close predictions and higher RMSE indicates which inputs point to areas of improvement.  
+
+In this project, our goal is to operate efficient models to minimize computational resources for sustainability. We also aim to operate ethically; for example, our data set has been ethically sourced.
 
 ### Gantt Chart
 <a href="https://gtvault.sharepoint.com/:x:/s/MachineLearningCS7641/EaLiTgVlemVKnLifPSGEGbMBKy4zsQolP880C8xhN7b61g?e=wzoIbL"> Link to Gantt Chart </a>
