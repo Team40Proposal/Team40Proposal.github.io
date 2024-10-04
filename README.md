@@ -31,4 +31,4 @@
 ## Video Presentation
 
 ## GitHub Repository
-[Link to GitHub Repository] (https://github.com/kamyar94/Team40_L7641_Fall2024)
+<a href="https://github.com/kamyar94/Team40_L7641_Fall2024"> Link to GitHub Repository </a>
