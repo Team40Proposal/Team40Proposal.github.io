@@ -6,6 +6,7 @@
 ### Results and Discussion
 ### Gantt Chart
 ### Contribution Table
+
 | Name | Proposal Contributions |
 |------|------------------------|
 | Kamyar Fatemifar | Problem Definition, Methods, Results, GitHub Repository |
