@@ -1,10 +1,20 @@
 # Optimizing Attribute Selection for 3D Model Popularity Prediction
 ## Project Report
 ### Introduction and Background
+
+
 ### Problem Definition
+
+
 ### Methods
+
+
 ### Results and Discussion
+
+
 ### Gantt Chart
+[Link to Gantt Chart] ()
+
 ### Contribution Table
 
 | Name | Proposal Contributions |
@@ -17,6 +27,8 @@
 
 ### References
 
+
 ## Video Presentation
 
 ## GitHub Repository
+[Link to GitHub Repository] (https://github.com/kamyar94/Team40_L7641_Fall2024)
