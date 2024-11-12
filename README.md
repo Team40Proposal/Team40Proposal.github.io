@@ -1,25 +1,31 @@
 # Optimizing Attribute Selection for 3D Model Popularity Prediction
 ## Project Report
-### Introduction and Background
-With the expansion of 3D digital content creation, many model repositories and markets are evolving. The need for data-driven approaches to optimize decision-making has become increasingly critical. The choice of tags like product name, price, etc. to maximize model popularity is crucial.\
+### Introduction/Background and Literature Review
+With the expansion of 3D digital content creation landscape, many established model repositories and markets are evolving. Thus, the need for data-driven approaches to optimize decision making has become increasingly critical. The choice of proper descriptive product tags like product name, price, and other factors that can maximize the popularity of a model has correspondingly become a crucial need.\
 <br>
-Studies show the effectiveness of content-based methods in organizing and retrieving 3D models and leveraging metadata/semantic features to enhance classification [1][2]. We will utilize ML models to automate decision making on attribute associations. By analyzing metadata (products' existing description tags), our system will predict the optimal attributes for new models. This provides publishers with insights into the factors driving product popularity, facilitating better decision-making and enhancing content marketing strategies [3][4].
+Studies show the effectiveness of content-based methods in organizing and retrieving 3D models, particularly when leveraging metadata and semantic features to enhance classification [1], [2]. In this project, we utilize popular ML models and techniques to automate the process of decision making on attributes associations. By analyzing metadata (the existing tags associated with products), the proposed system will be able to predict the optimal attributes for new models. This, in turn, will provide product publishers with insights into the factors driving model popularity, facilitating better decision-making and enhancing content marketing strategies [3], [4].
 
 ### Dataset Description
-Our dataset provides well-organized, structured information about 3D models, like names, URLs, pricing, and user engagement metrics (comments and likes). This format allows for efficient retrieval and analysis of model recommendations, tailored for further use in ML model training workflows. This data was ethically obtained in compliance with 3dsky's robots.txt.\
+Our dataset provides well-organized, structured information about 3D models, like names, URLs, pricing, and user engagement metrics such as comments and likes. This structured format allows for efficient retrieval and analysis of model recommendations, tailored for further use in ML model training workflows. This data was ethically obtained in compliance with 3dsky's robots.txt.\
 <br>
 <a href="https://drive.google.com/file/d/1jdKMc4G1djuLWZy0UvU5rw932eBVn5Q7/view?usp=drive"> Link to Dataset </a>\
 <br>
 <a href="https://3dsky.org/3dmodels"> Link to Data Source </a>
 
 ### Problem Definition and Motivation
-With increasing implementation of 3D model repositories and virtual asset marketing, there is a growing need for efficient market prediction methods. Publishers need reliable methods to determine the popularity of newly published products. We will develop an architecture capable of predicting the optimal combination of attributes that maximizes model popularity. 
+There are many businesses that conduct marketing of virtual products such as 3D models. Most of these businesses rely on creating a platform for connecting model publishers with customers. In this scenario, publishers and platform owners value higher sales - and one of the most important factors affecting sales is the descriptive product tags which help customers identify the best products based on their needs. For every product published, publishers need to determine an ideal set of tags such that their products’ popularity get maximized, which consequently increases the sales of their products and overall market performance. 
+
+In this project, we are trying to determine the ideal set of tags/attributes that maximize the popularity score and recommendation score of a product that a publisher is about to publish in a particular model sub-category. Popularity score is a feature that has been engineered based on number of likes, number of recommendations (provided by users for each product), number of comments, the sentiment of each comment (positive, negative or doubtful), the number of tags used for a product, and the publication date of that product. Random forest has been used to determine the weights of the factors determining the popularity score. After generating a popularity score, a recommendation score is calculated based on how many times a specific product URL has been recommended by other models on the website (it is important to note that this engineered recommendation score is different from the above recommendation count mentioned). Using these 2 scores and K-means clustering, we can determine the ideal set of tags that contribute to higher recommendation and popularity score for each product in a specific sub-category. 
 
 ### Methods
 #### Data Preprocessing Methods
-1. Standardization: Standardization ensures each feature has a mean 0 and standard deviation 1. Standardization will pre-process our datasets to improve performance. It will ensure that some attributes like price (with wide range) do not dominate other attributes.
-2. One-Hot Encoding: Categorical variables (product categories, brands, etc.) are converted into a binary matrix. No ordinal relationship is considered between categories. This method will pre-process our data for performance enhancement of our model.
-3. Imputation: Imputation pre-processing techniques ensure completeness of data. The size of dataset can be optimally reduced, ensuring better performance.
+We have used the following pre-processing methods to clean our datasets. For this report, we have 2 models implemented: Random Forest and K-means. Both models use different pre-processing methods, which are listed below. 
+
+##### Random Forest
+Data Cleaning: While working on the datasets, we found various models with empty tags, models without categories and models with missing data. As a result, we employed this technique to remove those models to make our dataset cleaner and more effective for training purposes. String slicing has been used to extract values required for the later implementation of popularity score generation, random forest and K-means.\
+<br>
+Standardization: One of our features for the K-means model is popularity score, which we standardize such that the value of the popularity score lies between 0 to 10. To accomplish this, we developed a Python script which gets the maximum score and minimum score in every sub-category and calculates the new weighted popularity score using the following equation: 
+
 
 #### Machine Learning Models
 1. Convolutional Neural Networks (CNNs): CNNs are an important deep learning architecture for image recognition. This architecture is characterized by having subsampling and convolutional layers and the training process updates the kernel weights. Convolutional neural networks are effective at extracting local features in images.
