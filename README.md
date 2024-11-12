@@ -9,6 +9,7 @@ Studies show the effectiveness of content-based methods in organizing and retrie
 Our dataset provides well-organized, structured information about 3D models, like names, URLs, pricing, and user engagement metrics such as comments and likes. This structured format allows for efficient retrieval and analysis of model recommendations, tailored for further use in ML model training workflows. This data was ethically obtained in compliance with 3dsky's robots.txt.\
 <br>
 <a href="https://drive.google.com/file/d/1jdKMc4G1djuLWZy0UvU5rw932eBVn5Q7/view?usp=drive"> Link to Dataset </a>\
+
 <br>
 <a href="https://3dsky.org/3dmodels"> Link to Data Source </a>
 
@@ -132,7 +133,9 @@ For the K-Means with the word2vec encodings, it is noted that representing the p
 There is a possible modification to make to the project to use transfer learning. We could get a pretrained convolutional neural network such as ResNet 18 or ResNet 24 and fine tune it on classification of category, subcategory, material, style, and tags.  Afterwards we can modify the model for regression and determine the number of likes and recommendations. This is a plausible idea since, based on the K-Means and DBScan results, it is indicated that there exists some relationship between the number of likes, recommendations, tags, and sentiment score. 
 
 ## Gantt Chart
-![image](https://github.com/user-attachments/assets/72404e24-3f01-4bd4-b671-c150317b49f3)
+![image](https://github.com/user-attachments/assets/72404e24-3f01-4bd4-b671-c150317b49f3) \
+<br>
+<a href="https://gtvault.sharepoint.com/:x:/s/MachineLearningCS7641/EaLiTgVlemVKnLifPSGEGbMBKy4zsQolP880C8xhN7b61g?e=wzoIbL"> Link to Gantt Chart </a>\
 
 ## Contribution Table
 
