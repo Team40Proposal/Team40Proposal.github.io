@@ -26,6 +26,7 @@ Data Cleaning: While working on the datasets, we found various models with empty
 <br>
 Standardization: One of our features for the K-means model is popularity score, which we standardize such that the value of the popularity score lies between 0 to 10. To accomplish this, we developed a Python script which gets the maximum score and minimum score in every sub-category and calculates the new weighted popularity score using the following equation: 
 
+![Equation](equation.png)
 
 #### Machine Learning Models
 1. Convolutional Neural Networks (CNNs): CNNs are an important deep learning architecture for image recognition. This architecture is characterized by having subsampling and convolutional layers and the training process updates the kernel weights. Convolutional neural networks are effective at extracting local features in images.
