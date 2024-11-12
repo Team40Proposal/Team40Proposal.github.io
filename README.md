@@ -80,16 +80,16 @@ Sentiment (0.060) and Comments (0.008) had lower impact. \
 These findings indicate that user recommendations and the presence of relevant tags substantially affect popularity, highlighting the importance of these features in 3D model marketing. 
 
 ### K-Means Clustering and Tag Optimization
-To identify ideal tag configurations, K-means clustering was applied using both the popularity and recommendation scores. By combining these two scores, we aimed to pinpoint tag sets that not only boost the popularity score (user engagement) but also align with website-driven recommendations (visibility and reach). \ 
+To identify ideal tag configurations, K-means clustering was applied using both the popularity and recommendation scores. By combining these two scores, we aimed to pinpoint tag sets that not only boost the popularity score (user engagement) but also align with website-driven recommendations (visibility and reach).\
 <br>
 Clustering Methodology: The dataset was divided into clusters based on popularity and recommendation scores, grouping products into categories where specific tag combinations led to higher combined scores. This clustering enabled us to identify patterns in tag usage across different popularity and recommendation levels, uncovering the tags most frequently associated with successful models. \
 <br>
-Tag Optimization Results: The clustering revealed that models with tags targeting both user preferences (captured by popularity score) and system-driven visibility (captured by recommendation score) were more likely to succeed. This insight can guide publishers in selecting tags that optimize both engagement and visibility, enhancing the model's marketability.
-
-![image](https://github.com/user-attachments/assets/eac271a8-9f54-400b-beaa-080b10854e9d)
+Tag Optimization Results: The clustering revealed that models with tags targeting both user preferences (captured by popularity score) and system-driven visibility (captured by recommendation score) were more likely to succeed. This insight can guide publishers in selecting tags that optimize both engagement and visibility, enhancing the model's marketability. \
+<br>
+![image](https://github.com/user-attachments/assets/eac271a8-9f54-400b-beaa-080b10854e9d)\
 Figure 1: Visualizing K-means clustering with D3
-
-![image](https://github.com/user-attachments/assets/dd2de83f-6cfd-4e49-9038-c3571b03b674)
+<br>
+![image](https://github.com/user-attachments/assets/dd2de83f-6cfd-4e49-9038-c3571b03b674)\
 Figure 2: Interactive tag review chart
 
 ### Validation and Consistency Analysis
@@ -110,12 +110,6 @@ When plotting the non-noise points, the results were two clusters with 14% of th
 ![image](https://github.com/user-attachments/assets/2c30b6a9-dd63-4fe1-99c0-3e31f28c350a)
 
 ## Discussion
-
-
-### Gantt Chart
-<a href="https://gtvault.sharepoint.com/:x:/s/MachineLearningCS7641/EaLiTgVlemVKnLifPSGEGbMBKy4zsQolP880C8xhN7b61g?e=wzoIbL"> Link to Gantt Chart </a>
-
-### Contribution Table
 The dataset was divided into a training and testing dataset in a ratio of approximately 80%/20%. The metrics for determining the performance of the random forest model included mean absolute error (MAE), mean squared error (MSE), root mean squared error (RMSE), and R squared values with the following values: 2.09e-4, 1.26e-7, 3.56e-4, 0.015. For the sensitivity analysis of the random forest model, the features like, recommendations, tags, sentiment, and comments had the following importances: 0.647, 0.277, 0.060, 0.008, 0.008. Although the R squared value indicates need for improvement in variance explanation, a low error rate indicates model accuracy.  \
 <br>
 In the model evaluation, feature importance analysis was combined with error and correlation metrics to evaluate the popularity scoring model. A Random Forest Regressor was utilized to analyze the importance of different features in predicting popularity scores for 3D models. By training the dataset on computed popularity scores (based on various parameters such as likes, recommendations, etc.) the random forest regressor can determine the sensitivity of each parameter. Feature importance is determined based on how much each attribute affects the prediction accuracy, providing insights into the relative impact of each factor. This sensitivity analysis allows us to optimize the popularity model by focusing on the most influential features, enhancing the model’s interpretability and predictive power. \
@@ -141,6 +135,7 @@ There is a possible modification to make to the project to use transfer learning
 ![image](https://github.com/user-attachments/assets/72404e24-3f01-4bd4-b671-c150317b49f3)
 
 ## Contribution Table
+
 | Name | Proposal Contributions |
 |------|------------------------|
 | Kamyar Fatemifar | Problem Definition, Dataset Description, Methods (Implemented ML Models) |
