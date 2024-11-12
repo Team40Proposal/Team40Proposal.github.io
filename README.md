@@ -135,7 +135,7 @@ There is a possible modification to make to the project to use transfer learning
 ## Gantt Chart
 ![image](https://github.com/user-attachments/assets/72404e24-3f01-4bd4-b671-c150317b49f3) \
 <br>
-<a href="https://gtvault.sharepoint.com/:x:/s/MachineLearningCS7641/EaLiTgVlemVKnLifPSGEGbMBKy4zsQolP880C8xhN7b61g?e=wzoIbL"> Link to Gantt Chart </a>\
+<a href="https://gtvault.sharepoint.com/:x:/s/MachineLearningCS7641/EaLiTgVlemVKnLifPSGEGbMBKy4zsQolP880C8xhN7b61g?e=wzoIbL"> Link to Gantt Chart </a>
 
 ## Contribution Table
 
