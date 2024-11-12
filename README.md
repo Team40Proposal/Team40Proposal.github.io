@@ -141,8 +141,8 @@ There is a possible modification to make to the project to use transfer learning
 
 | Name | Proposal Contributions |
 |------|------------------------|
-| Kamyar Fatemifar | Problem Definition, Dataset Description, Methods (Implemented ML Models) |
-| Suchismitaa Chakraverty | Introduction/Background, Methods (Preprocessing), References, Final Report Edits |
+| Kamyar Fatemifar | Problem Definition, Dataset Description, Methods (Implemented ML Models), GitHub Code Upload |
+| Suchismitaa Chakraverty | Introduction/Background, Problem Definition, Methods (Preprocessing), References, Final Report Edits |
 | Joseph Hardin | Methods (Implemented ML Models), Contribution Table, Report Website, Final Report Edits, GitHub Code Upload |
 | Abhishek Misra | Methods (Implemented ML Models), Results/Evaluation Metrics, Discussion |
 | Max Pan | Methods (Implemented ML Models), Results/Evaluation Metrics, Gantt Chart, GitHub Code Upload |
