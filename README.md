@@ -17,11 +17,11 @@ There are many businesses that conduct marketing of virtual products such as 3D 
 
 In this project, we are trying to determine the ideal set of tags/attributes that maximize the popularity score and recommendation score of a product that a publisher is about to publish in a particular model sub-category. Popularity score is a feature that has been engineered based on number of likes, number of recommendations (provided by users for each product), number of comments, the sentiment of each comment (positive, negative or doubtful), the number of tags used for a product, and the publication date of that product. Random forest has been used to determine the weights of the factors determining the popularity score. After generating a popularity score, a recommendation score is calculated based on how many times a specific product URL has been recommended by other models on the website (it is important to note that this engineered recommendation score is different from the above recommendation count mentioned). Using these 2 scores and K-means clustering, we can determine the ideal set of tags that contribute to higher recommendation and popularity score for each product in a specific sub-category. 
 
-### Methods
-#### Data Preprocessing Methods
+## Methods
+### Data Preprocessing Methods
 We have used the following pre-processing methods to clean our datasets. For this report, we have 2 models implemented: Random Forest and K-means. Both models use different pre-processing methods, which are listed below. 
 
-##### Random Forest
+#### Random Forest
 Data Cleaning: While working on the datasets, we found various models with empty tags, models without categories and models with missing data. As a result, we employed this technique to remove those models to make our dataset cleaner and more effective for training purposes. String slicing has been used to extract values required for the later implementation of popularity score generation, random forest and K-means.\
 <br>
 Standardization: One of our features for the K-means model is popularity score, which we standardize such that the value of the popularity score lies between 0 to 10. To accomplish this, we developed a Python script which gets the maximum score and minimum score in every sub-category and calculates the new weighted popularity score using the following equation: 
