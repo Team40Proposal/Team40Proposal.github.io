@@ -139,27 +139,27 @@ To tackle this issue, we trained a CNN using a dataset of approximately 130,000 
 - 80.0% accuracy in predicting the main categories of products \
 <br>
 
-Training and Validation Loss Over Time:
+Training and Validation Loss Over Time:\
 ![image](https://github.com/user-attachments/assets/5d618932-2082-47c7-8cca-537f9a3c351f)
 
-Training and Validation Accuracy Over Time:
+Training and Validation Accuracy Over Time:\
 ![image](https://github.com/user-attachments/assets/dd983f93-21f7-4fe8-816c-14e3a4baef3d)
 
-Confusion Matrix of Subcategory:
+Confusion Matrix of Subcategory:\
 ![image](https://github.com/user-attachments/assets/48565e4a-0892-4ae1-a115-7a59c7ce12c1)
 
-Confusion Matrix of Category:
+Confusion Matrix of Category:\
 ![image](https://github.com/user-attachments/assets/ead24569-a73f-4421-8d88-0276d03cdcce)
-<br>
+
 In terms of relative frequency, the highest misclassification occurs when the target subcategory is “bidet” and the predicted subcategory is “toilet & bidet”. In terms of the number of items, the highest misclassification occurs when the target subcategory is “outdoor” and the predicted subcategory is “bush”. For the two cases above, the target and predicted subcategory belong to the same category. In terms of relative frequency, the highest misclassification, where the category is also misclassified, occurs when the target subcategory is “glass” and the predicted subcategory is “tile”.  
 
-Item belonging to "bidet" misclassified as "toilet and bidet":
+Item belonging to "bidet" misclassified as "toilet and bidet":\
 ![image](https://github.com/user-attachments/assets/527ff246-7fde-426c-ad7c-fd3cf67fdec0)
 
-Item belonging to "outdoor" misclassified as "bush":
+Item belonging to "outdoor" misclassified as "bush":\
 ![image](https://github.com/user-attachments/assets/cccb5365-b27e-45da-8e65-342850386a19)
 
-Item belonging to "glass" misclassified as "tile":
+Item belonging to "glass" misclassified as "tile":\
 ![image](https://github.com/user-attachments/assets/3fcd06d1-0338-4f0c-b9ca-60909041df9b)
 
 ## Discussion
