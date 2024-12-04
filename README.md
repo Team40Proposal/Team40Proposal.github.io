@@ -110,10 +110,10 @@ Clustering Methodology: The dataset was divided into clusters based on popularit
 Tag Optimization Results: The clustering revealed that models with tags targeting both user preferences (captured by popularity score) and system-driven visibility (captured by recommendation score) were more likely to succeed. This insight can guide publishers in selecting tags that optimize both engagement and visibility, enhancing the model's marketability. \
 <br>
 ![image](https://github.com/user-attachments/assets/eac271a8-9f54-400b-beaa-080b10854e9d)\
-Figure 1: Visualizing K-means clustering with D3
+Visualizing K-means clustering with D3
 <br>
 ![image](https://github.com/user-attachments/assets/dd2de83f-6cfd-4e49-9038-c3571b03b674)\
-Figure 2: Interactive tag review chart
+Interactive tag review chart
 
 ### Validation and Consistency Analysis
 To validate the effectiveness of the popularity scores generated, we compared the Weighted Popularity Score with the Original Popularity Score using MAE and MSE. High correlation values between likes and both weighted and original scores confirmed that the computed scores aligned closely with user interest, thereby reinforcing the model's predictive relevance. 
@@ -186,7 +186,7 @@ In the first approach, using K-Means, we focused on clustering items belonging t
 
 In the second approach, using K-Means and DBSCAN with the vectorized tags, items within a subcategory were clustered based on likes, recommendations, vectorized tags, and sentiment score. Based on the clustering score, moderate amount of clustering did occur. From this, especially using the centers of K-Means, we can identify the tags typically associated with clusters that have a high number of likes or recommendations.  
 
-For our third approach, we adjusted the problem to adopt a user-centric perspective to leverage the capabilities of Convolutional Neural Networks (CNNs). While the first two methods aimed to assist publishers, the CNN model was designed to address challenges users face in managing their 3D models. Typically, when users initially interact with organized repositories, they benefit from the website's structured setup (Figure 15). However, once they download these models, they often become scattered, disorganized, and difficult to share or reuse. This lack of universal organization results in thousands of models being stored without any standardized categorization, making their management inefficient. 
+For our third approach, we adjusted the problem to adopt a user-centric perspective to leverage the capabilities of Convolutional Neural Networks (CNNs). While the first two methods aimed to assist publishers, the CNN model was designed to address challenges users face in managing their 3D models. Typically, when users initially interact with organized repositories, they benefit from the website's structured setup (see figure below). However, once they download these models, they often become scattered, disorganized, and difficult to share or reuse. This lack of universal organization results in thousands of models being stored without any standardized categorization, making their management inefficient. 
 
 The CNN approach demonstrated significant potential for improving data organization. By automating the categorization process, users can efficiently organize and share their 3D models in a standardized structure, regardless of the original website’s organization system. This universal framework can greatly enhance the usability and accessibility of 3D models across various platforms. 
 
