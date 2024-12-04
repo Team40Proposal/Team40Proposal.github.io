@@ -1,5 +1,5 @@
 # Optimizing Attribute Selection for 3D Model Popularity Prediction
-## Projecty Report
+## Project Report
 ### Introduction/Background and Literature Review
 With the expansion of 3D digital content creation landscape, many established model repositories and markets are evolving, so the need for data-driven approaches to optimize decision making has become increasingly critical. The choice of proper tags like product name, product price, etc to maximize the model popularity therefore becomes a crucial need.   
 
