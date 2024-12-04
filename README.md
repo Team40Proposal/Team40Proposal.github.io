@@ -1,15 +1,16 @@
 # Optimizing Attribute Selection for 3D Model Popularity Prediction
 ## Project Report
 ### Introduction/Background and Literature Review
-With the expansion of 3D digital content creation landscape, many established model repositories and markets are evolving. Thus, the need for data-driven approaches to optimize decision making has become increasingly critical. The choice of proper descriptive product tags like product name, price, and other factors that can maximize the popularity of a model has correspondingly become a crucial need.\
-<br>
-Studies show the effectiveness of content-based methods in organizing and retrieving 3D models, particularly when leveraging metadata and semantic features to enhance classification [1], [2]. In this project, we utilize popular ML models and techniques to automate the process of decision making on attributes associations. By analyzing metadata (the existing tags associated with products), the proposed system will be able to predict the optimal attributes for new models. This, in turn, will provide product publishers with insights into the factors driving model popularity, facilitating better decision-making and enhancing content marketing strategies [3], [4].
+With the expansion of 3D digital content creation landscape, many established model repositories and markets are evolving, so the need for data-driven approaches to optimize decision making has become increasingly critical. The choice of proper tags like product name, product price, etc to maximize the model popularity therefore becomes a crucial need.   
+
+Studies have shown the effectiveness of content-based methods in organizing and retrieving 3D models, particularly when leveraging metadata and semantic features to enhance classification [1], [2]. In this project, we will utilize popular ML models and techniques to automate the process of decision making on attributes associations. By analyzing metadata (the existing tags associated with products), the proposed system will be able to predict the optimal attributes for new models. This in turn, will provide product publishers insights into the factors driving model popularity, facilitating better decision-making and enhancing content marketing strategies [3], [4].
 
 ### Dataset Description
-Our dataset provides well-organized, structured information about 3D models, like names, URLs, pricing, and user engagement metrics such as comments and likes. This structured format allows for efficient retrieval and analysis of model recommendations, tailored for further use in ML model training workflows. This data was ethically obtained in compliance with 3dsky's robots.txt.\
+The output dataset provides a well-organized structure capturing essential information about 3D models, such as their names, URLs, pricing, and user engagement metrics like comments and likes. This structured format allows for efficient retrieval and analysis of model recommendations, tailored for further use in ml model training workflows. This data was ethically obtained in compliance with 3dsky's robots.txt.\
 <br>
-<a href="https://drive.google.com/file/d/1jdKMc4G1djuLWZy0UvU5rw932eBVn5Q7/view?usp=drive"> Link to Dataset </a>\
-
+<a href="https://drive.google.com/file/d/1jdKMc4G1djuLWZy0UvU5rw932eBVn5Q7/view?usp=drive"> Link to Dataset (Tags) </a>
+<br>
+<a href="https://gtvault.sharepoint.com/:f:/s/MachineLearningCS7641/Evp5pvsgpvRCr-N2p4TGpa8BBis-jF8ef_ETLzTDAGJ7tQ?e=a6PCJ0"> Link to Dataset (Images) </a>
 <br>
 <a href="https://3dsky.org/3dmodels"> Link to Data Source </a>
 
