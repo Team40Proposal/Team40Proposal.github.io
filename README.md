@@ -68,7 +68,7 @@ For DBScan, items within the category “Furniture” and category “chair” w
 The minimum distance was selected to reduce the number of points that were considered as noise yet increase the silhouette score. The number of clusters was selected in the same way. At the end, 14% of the items were considered noise. 
 
 #### CNN Classification
-A convolutional neural network (CNN) was used such that an input image was given and a subcategory classification was the output. Much of the code was based on CS 6476 Assignment 4. Modifications were used to accommodate a pretrained ResNet34 model instead of a ResNet18 model and the architecture was changed to specify the training set to validation set ratio as well as accommodate color images instead of black-and-white images. 
+A convolutional neural network (CNN) was used such that an input image was given and a subcategory classification was the output. Much of the code was based on one of our teammates' prior CS 6476 Assignment 4 work. Modifications were used to accommodate a pretrained ResNet34 model instead of a ResNet18 model and the architecture was changed to specify the training set to validation set ratio as well as accommodate color images instead of black-and-white images. 
 
 The images for training and validation were sampled from a collection of ~130,000 images. Each subcategory had at most 500 images. If the subcategory did not have that many, all images from that subcategory was used. The training and validation set was split roughly into 70% and 30%. 
 
