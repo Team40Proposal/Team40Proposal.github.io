@@ -15,35 +15,44 @@ The output dataset provides a well-organized structure capturing essential infor
 <a href="https://3dsky.org/3dmodels"> Link to Data Source </a>
 
 ### Problem Definition and Motivation
-There are many businesses that conduct marketing of virtual products such as 3D models. Most of these businesses rely on creating a platform for connecting model publishers with customers. In this scenario, publishers and platform owners value higher sales - and one of the most important factors affecting sales is the descriptive product tags which help customers identify the best products based on their needs. For every product published, publishers need to determine an ideal set of tags such that their products’ popularity get maximized, which consequently increases the sales of their products and overall market performance. 
+With the increasing implementations of 3D model repositories and virtual asset marketing, there is a growing need for efficient market prediction methods. There are many businesses forming around virtual product marketing such as 3D models. Most of these businesses rely on creating a platform for connecting model publishers and customers. In this scenario, publishers and platform owners value higher sales and one of the most important factors affecting sales is product attributes/ tags which help customers identify the best products based on their needs. For every product published, publishers need to determine an ideal set of tags such that their products’ popularity get maximized, which consequently increases the sales of their products and overall market performance. 
 
-In this project, we are trying to determine the ideal set of tags/attributes that maximize the popularity score and recommendation score of a product that a publisher is about to publish in a particular model sub-category. Popularity score is a feature that has been engineered based on number of likes, number of recommendations (provided by users for each product), number of comments, the sentiment of each comment (positive, negative or doubtful), the number of tags used for a product, and the publication date of that product. Random forest has been used to determine the weights of the factors determining the popularity score. After generating a popularity score, a recommendation score is calculated based on how many times a specific product URL has been recommended by other models on the website (it is important to note that this engineered recommendation score is different from the above recommendation count mentioned). Using these 2 scores and K-means clustering, we can determine the ideal set of tags that contribute to higher recommendation and popularity score for each product in a specific sub-category. 
+In this project, we are trying to determine the ideal set of tags/attributes that helps maximize the popularity of a product, a publisher is about to publish in a particular sub-category under a category.  Random forest has been used to determine the weights of the factors determining a product’s popularity. Using unsupervised learning methods like K-means clustering and DBScan, we are determining the ideal set of tags that contribute to higher popularity of a product in a specific sub-category. 
+
+For many publishing organizations, the servers are loaded with lots of different product images which need to be classified automatically in sub-categories. Otherwise, the manual task of doing it can be quite tedious. This is another aspect of the problem that our ML model CNN aims to solve by automating the classification task of those images in accurate sub-categories quickly and efficiently.
 
 ## Methods
 ### Data Preprocessing Methods
-We have used the following pre-processing methods to clean our datasets. For this report, we have 2 models implemented: Random Forest and K-means. Both models use different pre-processing methods, which are listed below. 
+In this project, we have implemented 3 models namely K-means and DBScan(unsupervised learning methods) and CNN (supervised learning method). Because of the huge size of the dataset and data containing lot of unwanted values (not suitable for model training), a variety of techniques have been implemented to clean the dataset. The pre-processing methods used are described as follows: 
 
-#### Random Forest
-Data Cleaning: While working on the datasets, we found various models with empty tags, models without categories and models with missing data. As a result, we employed this technique to remove those models to make our dataset cleaner and more effective for training purposes. String slicing has been used to extract values required for the later implementation of popularity score generation, random forest and K-means.\
-<br>
+#### Data Cleaning
+While working on the datasets, we found various models with empty tags, models without categories and models with missing data. As a result, we employed this technique to remove those models to make our dataset cleaner and more effective for training purposes. String slicing has been used to extract values required for the later implementation of popularity score generation, random forest and K-means.
+
+#### Standardization
 Standardization: One of our features for the K-means model is popularity score, which we standardize such that the value of the popularity score lies between 0 to 10. To accomplish this, we developed a Python script which gets the maximum score and minimum score in every sub-category and calculates the new weighted popularity score using the following equation: 
 
 ![equation](https://github.com/user-attachments/assets/2532c5db-c6f7-471d-97e4-894226c047f5)
 
 In this equation, x is the original popularity score based on the popularity score function and x’ is the new weighted score.
 
-#### K-Means
-Feature Engineering: Popularity score is a new feature that has been developed to feed into the K-means model such that the ideal set of tags that would maximize the popularity score of a product can be identified before the product's publication. This score was developed by integrating multiple user engagement metrics such as likes, comments, sentiment analysis, and tags to reflect overall user interest and engagement with the 3D models. To identify the weights for tags in the popularity score calculation, random forest has been employed. In this way, the popularity score provides us with a new feature for each subcategory. Separate from the popularity score, a recommendation score was calculated based on how frequently a model’s URL was recommended alongside other models on the platform. This score captures the model’s interconnectedness within the recommendation system of the website, providing insights into broader visibility and potential reach. 
+#### Feature Engineering
+Popularity score is a new feature that has been developed to feed into the K-means model such that the ideal set of tags that would maximize the popularity score of a product can be identified before the product's publication. This score was developed by integrating multiple user engagement metrics such as likes, comments, sentiment analysis, and tags to reflect overall user interest and engagement with the 3D models. To identify the weights for tags in the popularity score calculation, random forest has been employed. In this way, the popularity score provides us with a new feature for each subcategory.
+
+#### Random Forest (preprocessing for k-Means)
+A random forest regressor was utilized to assess importance of different metrics in determining the popularity of 3D models based on various engagement metrics. A custom computed popularity score was created based on metadata from the 3D models. To see the impact per feature, a parameter grid was used to generate different combinations of weights for each metric.  A decay factor was implemented to account for time since the model’s publication. The popularity score along with the corresponding weight and decay factor were used as inputs features and target values for the random forest model. 
 
 ### Machine Learning Models
-The primary ML method that we have implemented thus far is a random forest regressor which we utilized to assess importance of different metrics in determining the popularity of 3D models based on various engagement metrics. As described previously, we wished to utilize a custom computed popularity score based on metadata from the 3D models. However, before we could calculate this score, we needed to derive an equation that accurately assembled all of the different metrics and properly represented how important each feature was in the overall score. Thus, we needed to determine the 'weights' for each element in the equation. To see the impact per feature, a parameter grid was used to generate different combinations of weights for each metric. A decay factor was implemented to account for time since the model’s publication. We began by creating variations in the popularity score by applying a range of weights to each factor - each combination of which would result in a different computed popularity score. After this, the random forest regressor could then evaluate the overall importance and influence of each factor in the overall computation of the popularity score. The final output of this regressor would be a range of weights for each factor informing the popularity score, which could then be used to inform the popularity score equation and, by extension, further modeling using this data. The popularity score along with the corresponding weight and decay factor were used as inputs features and target values for the random forest model.\
-<br>
-Furthermore, we were able to implement preliminary attempts at K-Means and DBScan clustering based on the popularity score and other components.
+To address the 2 aspects of the problem definition i.e. identifying the optimal set of tags that increases a product’s popularity and automating the classification of thousands of products into accurate sub-categories, three models have been implemented respectively.  
 
-#### K-Means Attempt with Word2Vec Encodings
+Unsupervised learning methods, namely K-means and DBScan have been employed to address the first part of the problem whereas supervised learning method CNN has been employed to address the second part of the problem. These methods are described in detail below: 
+
+#### K-Means Approach with Popularity Score calculation
+In this approach, we tried to determine the ideal set of tags/attributes that helps maximize the popularity score and recommendation score of a product, a publisher is about to publish in a particular sub-category under a category. Popularity score is a feature that has been developed based on likes count, recommendation count (provided by users for each product), comments count and the sentiment of each comment (positive, negative or doubtful), the number of tags used for a product and the date of publication of that product. Random forest has been used to determine the weights of the factors determining the popularity score. After generating a popularity score, a recommendation score is calculated based on how many times a specific product URL has been recommended by other models on the website (this recommendation score is different from the above recommendation count mentioned). Using these 2 scores and K-means clustering, we determined the ideal set of tags that contribute to higher recommendation and popularity score for each product in a specific sub-category. 
+
+#### K-Means Approach with Word2vec Encodings
 In this attempt, items that belonged to the category “Furniture” and the subcategory “chairs” were studied. 
 
-Word2vec is an encoding method that converts words to vectors using neural networks. The model combines skip-gram and continuous bag-of-words to predict a word based on its neighbors. The benefit of this method is that similar words will have similar vector representations. Products were inputted into the word2vec algorithm as “sentences” in the following way: [category, subcategory, tag 1, tag 2, ..., product name]. The resulting output vector size was set to 100 and the window size for prediction was set to 10. Afterwards, to reduce the dimensionality and therefore noise, PCA was used such that 95% of the variance was maintained.  
+Word2vec is an encoding method that converts words to vectors using neural networks. The model combines skip-gram and continuous bag-of-words to predict a word based on its neighbors. The benefit of this method is that similar words will have similar vector representations. Products were inputted into the word2vec algorithm as “sentences” in the following way: [category, subcategory, tag 1, tag 2, ..., product name]. The resulting output vector size was set to 100 and the window size for prediction was set to 10. Afterwards, to reduce the dimensionality and therefore noise, PCA was used such that 95% of the variance was maintained.
 
 For the algorithm, likes, recommendations, sentiment score, and the average of the item’s vectorized tags were used as features. The values were normalized such that all quantities had a mean of 0 and a standard deviation of 1. The vectorized tags were normalized such that the total standard deviation from the mean vector was 1. This placed an equal importance on all the features. 
 
@@ -58,8 +67,20 @@ For DBScan, items within the category “Furniture” and category “chair” w
 
 The minimum distance was selected to reduce the number of points that were considered as noise yet increase the silhouette score. The number of clusters was selected in the same way. At the end, 14% of the items were considered noise. 
 
+#### CNN Classification
+A convolutional neural network (CNN) was used such that an input image was given and a subcategory classification was the output. Much of the code was based on CS 6476 Assignment 4. Modifications were used to accommodate a pretrained ResNet34 model instead of a ResNet18 model and the architecture was changed to specify the training set to validation set ratio as well as accommodate color images instead of black-and-white images. 
+
+The images for training and validation were sampled from a collection of ~130,000 images. Each subcategory had at most 500 images. If the subcategory did not have that many, all images from that subcategory was used. The training and validation set was split roughly into 70% and 30%. 
+
+We used a pretrained resnet34 model, where we froze all the layers except for last fully connected layer. The last fully connected layer was modified such that the output dimensions was the number of subcategories. For the training, various transforms such as random horizontal flip, gaussian blur, random rotation, and random scaling were used for data augmentation.   
+
 ## Results
 The results of this study focused on evaluating the performance of a machine learning model designed to predict the popularity of 3D models based on various product attributes. Two primary machine learning approaches, Random Forest and K-means clustering, were employed to assess attribute significance and optimal tag selection.
+
+### Popularity Score and Recommendation Score Calculation
+Popularity Score: This score was developed by integrating multiple user engagement metrics such as likes, comments, sentiment analysis, and tags to reflect overall user interest and engagement with the 3D models. 
+
+Website-Based Recommendation Score: Separate from the popularity score, a recommendation score was calculated based on how frequently a model’s URL was recommended alongside other models on the platform. This score captures the model’s interconnectedness within the recommendation system of the website, providing insights into broader visibility and potential reach. 
 
 ### Random Forest Regression
 The Random Forest model was trained on a dataset that included multiple popularity-driving features, such as likes, recommendations, comments, sentiment analysis, and product tags. At this stage the goal was to determine the proper parameter weight settings for the popularity score function based on correlation between different parameters and the output.\
@@ -111,8 +132,38 @@ When plotting the non-noise points, the results were two clusters with 14% of th
 
 ![image](https://github.com/user-attachments/assets/2c30b6a9-dd63-4fe1-99c0-3e31f28c350a)
 
+### CNN Classification Results
+To tackle this issue, we trained a CNN using a dataset of approximately 130,000 images, which were already categorized into main categories and subcategories. The data was divided into training and testing sets. The CNN model achieved the following results:
+<br>
+- 66.8% accuracy in predicting the subcategory of a given image output \
+- 80.0% accuracy in predicting the main categories of products \
+<br>
+
+Training and Validation Loss Over Time:
+![image](https://github.com/user-attachments/assets/5d618932-2082-47c7-8cca-537f9a3c351f)
+
+Training and Validation Accuracy Over Time:
+![image](https://github.com/user-attachments/assets/dd983f93-21f7-4fe8-816c-14e3a4baef3d)
+
+Confusion Matrix of Subcategory:
+![image](https://github.com/user-attachments/assets/48565e4a-0892-4ae1-a115-7a59c7ce12c1)
+
+Confusion Matrix of Category:
+![image](https://github.com/user-attachments/assets/ead24569-a73f-4421-8d88-0276d03cdcce)
+<br>
+In terms of relative frequency, the highest misclassification occurs when the target subcategory is “bidet” and the predicted subcategory is “toilet & bidet”. In terms of the number of items, the highest misclassification occurs when the target subcategory is “outdoor” and the predicted subcategory is “bush”. For the two cases above, the target and predicted subcategory belong to the same category. In terms of relative frequency, the highest misclassification, where the category is also misclassified, occurs when the target subcategory is “glass” and the predicted subcategory is “tile”.  
+
+Item belonging to "bidet" misclassified as "toilet and bidet":
+![image](https://github.com/user-attachments/assets/527ff246-7fde-426c-ad7c-fd3cf67fdec0)
+
+Item belonging to "outdoor" misclassified as "bush":
+![image](https://github.com/user-attachments/assets/cccb5365-b27e-45da-8e65-342850386a19)
+
+Item belonging to "glass" misclassified as "tile":
+![image](https://github.com/user-attachments/assets/3fcd06d1-0338-4f0c-b9ca-60909041df9b)
+
 ## Discussion
-The dataset was divided into a training and testing dataset in a ratio of approximately 80%/20%. The metrics for determining the performance of the random forest model included mean absolute error (MAE), mean squared error (MSE), root mean squared error (RMSE), and R squared values with the following values: 2.09e-4, 1.26e-7, 3.56e-4, 0.015. For the sensitivity analysis of the random forest model, the features like, recommendations, tags, sentiment, and comments had the following importances: 0.647, 0.277, 0.060, 0.008, 0.008. Although the R squared value indicates need for improvement in variance explanation, a low error rate indicates model accuracy.  \
+For the random forest model, the dataset was divided into a training and testing dataset in a ratio of approximately 80%/20%. The metrics for determining the performance of the random forest model included mean absolute error (MAE), mean squared error (MSE), root mean squared error (RMSE), and R squared values with the following values: 2.09e-4, 1.26e-7, 3.56e-4, 0.015. For the sensitivity analysis of the random forest model, the features like, recommendations, tags, sentiment, and comments had the following importances: 0.647, 0.277, 0.060, 0.008, 0.008. Although the R squared value indicates need for improvement in variance explanation, a low error rate indicates model accuracy.  \
 <br>
 In the model evaluation, feature importance analysis was combined with error and correlation metrics to evaluate the popularity scoring model. A Random Forest Regressor was utilized to analyze the importance of different features in predicting popularity scores for 3D models. By training the dataset on computed popularity scores (based on various parameters such as likes, recommendations, etc.) the random forest regressor can determine the sensitivity of each parameter. Feature importance is determined based on how much each attribute affects the prediction accuracy, providing insights into the relative impact of each factor. This sensitivity analysis allows us to optimize the popularity model by focusing on the most influential features, enhancing the model’s interpretability and predictive power. \
 <br>
@@ -128,10 +179,36 @@ Correlation between Original Popularity Score and Likes: 0.8223807009734683
 
 The silhouette score values given by the K-Means and DBScan results indicates that reasonable clustering is occurring. Since DBScan yields a slightly higher silhouette score, this indicates that non-linear regression methods might be more appropriate than linear regression. The vectorization does show some validity as tags such as “white”, “pink”, “yellow”, and “red” are associated with the second K-Means cluster. However, it seems that the encoding methods would have to be further tested or modified to see trends regarding tags. Due to the success of the clustering, it confirms that it is valid to use non-numerical features such as tags, categories, subcategories, style, and material to confirm the number of likes and recommendations. 
 
-### Possible Improvements
+For the evaluation of CNN, specifically ResNet34 included multiple metric-based analysis to evaluate the performance. Training and validation accuracy were tracked over multiple epochs to ensure the model’s learning and generalization. ResNet34 was able to achieve the highest validation accuracy with a score of 66.8% for the subcategory over 10 epochs. We have tested several implementations of the CNN: with black and white images and ResNet 18 (~62% validation accuracy), with black and white images and ResNet34 (~64%), with color images and ResNet34 (66.8% validation accuracy), and with color images, ResNet34, & a dropout layer (~64%). The decrease in performance from the addition of the dropout layer is due to accidentally including the dropout layer during the validation phase. Cross entropy loss was the criterion that was used. Since training and validation loss values consistently decreased across the epochs, it was shown that neither overfitting nor underfitting occurred.  
+
+### Comparison of our various approaches
+In the first approach, using K-Means, we focused on clustering items belonging to specific product tags by leveraging two critical metrics: the calculated popularity score and the recommendation frequency provided by the website. These metrics were used to determine an optimal set of tags and attributes that publishers could use to increase the visibility and popularity of their products within specific subcategories. The calculated popularity score incorporated user engagement metrics such as likes, recommendations, sentiment, and comments, while the recommendation frequency highlighted the interconnectedness of a product with others on the platform. Both methods successfully identified tag combinations that enhance a product's potential for engagement and market reach. 
+
+In the second approach, using K-Means and DBSCAN with the vectorized tags, items within a subcategory were clustered based on likes, recommendations, vectorized tags, and sentiment score. Based on the clustering score, moderate amount of clustering did occur. From this, especially using the centers of K-Means, we can identify the tags typically associated with clusters that have a high number of likes or recommendations.  
+
+For our third approach, we adjusted the problem to adopt a user-centric perspective to leverage the capabilities of Convolutional Neural Networks (CNNs). While the first two methods aimed to assist publishers, the CNN model was designed to address challenges users face in managing their 3D models. Typically, when users initially interact with organized repositories, they benefit from the website's structured setup (Figure 15). However, once they download these models, they often become scattered, disorganized, and difficult to share or reuse. This lack of universal organization results in thousands of models being stored without any standardized categorization, making their management inefficient. 
+
+The CNN approach demonstrated significant potential for improving data organization. By automating the categorization process, users can efficiently organize and share their 3D models in a standardized structure, regardless of the original website’s organization system. This universal framework can greatly enhance the usability and accessibility of 3D models across various platforms. 
+
+The following image is a visualization of categories and subcategories of 3d products offered on the reference website, with nested publisher ID's and top 50 product names. Edges are color coded based on the number of products in each branch and products are sorted and color coded based on popularity scores in the final layer using radial tree visualization script from D3.js.
+
+![image](https://github.com/user-attachments/assets/fa1105b4-52cd-4a8e-9a11-0c0bfe5d1f20)
+
+Please refer to the following table for a summarized report of our methods and evaluations. 
+
+![image](https://github.com/user-attachments/assets/c9bb2f47-baff-4428-b4f3-4754918d30d9)
+![image](https://github.com/user-attachments/assets/f1ba7ea0-9e6b-47b5-b13d-218418e38163)
+
+### Possible Improvements and Suggestions for Future Directions
 For the K-Means with the word2vec encodings, it is noted that representing the product as the average of its tags may not be accurate since some tags may be more important than others. It is noted that other word encoding methods should be tested such as GloVe, BERT, and term frequency – inverse document frequency methods. Furthermore, features such as style and material should also be encoded. 
 
-There is a possible modification to make to the project to use transfer learning. We could get a pretrained convolutional neural network such as ResNet 18 or ResNet 24 and fine tune it on classification of category, subcategory, material, style, and tags.  Afterwards we can modify the model for regression and determine the number of likes and recommendations. This is a plausible idea since, based on the K-Means and DBScan results, it is indicated that there exists some relationship between the number of likes, recommendations, tags, and sentiment score. 
+There is a possible modification to make to the project to use transfer learning. We could get a pretrained convolutional neural network such as ResNet 18 or ResNet 34. and fine tune it on classification of category, subcategory, material, style, and tags.  Afterwards we can modify the model for regression and determine the number of likes and recommendations. This is a plausible idea since, based on the K-Means and DBScan results, it is indicated that there exists some relationship between the number of likes, recommendations, tags, and sentiment score. 
+
+For CNN, implementing Transfer Learning could improve accuracy. To address the accuracy limitations in subcategory predictions, we recommend adopting a transfer learning approach. First, a pre-trained model can be fine-tuned to predict main categories, leveraging the broader and more easily distinguishable patterns. Subsequently, the model can be further trained to predict subcategories within a single main category. This hierarchical approach is expected to improve the model's accuracy by focusing on nuanced distinctions within subcategories after establishing a robust foundation at the category level. In addition, to prevent risk of overfitting, dropout layers could be added throughout the neural network.  Furthermore, since some subcategories had very few images, generative adversarial networks (GANs) could be used for data augmentation of those subcategories. 
+
+To improve model generalization and reduce prediction errors, we suggest using a larger and more diverse dataset for training and testing. Additionally, testing the models with images sourced from other 3D model repositories will help evaluate the robustness of our approach across varied platforms and organizational structures. This expansion would also provide insights into the adaptability of the models to different tagging systems and data formats. 
+
+While our CNN approach focused primarily on image-based predictions of categories and subcategories, integrating additional features such as tags, attributes, and metadata from the dataset could significantly enhance the model's predictive capabilities. Tags and other textual attributes often provide semantic context that complements visual data, helping the model make more informed and accurate predictions. Using a multimodal approach that combines image and metadata inputs could result in a more comprehensive categorization framework. 
 
 ## Gantt Chart
 ![image](https://github.com/user-attachments/assets/72404e24-3f01-4bd4-b671-c150317b49f3) \
@@ -143,7 +220,7 @@ There is a possible modification to make to the project to use transfer learning
 | Name | Proposal Contributions |
 |------|------------------------|
 | Kamyar Fatemifar | Problem Definition, Dataset Description, Methods (Implemented ML Models), GitHub Code Upload |
-| Suchismitaa Chakraverty | Introduction/Background, Problem Definition, Methods (Preprocessing), References, Final Report Edits |
+| Suchismitaa Chakraverty | Introduction/Background, Problem Definition, Methods (Preprocessing, Implemented ML Models), References, Final Report Edits |
 | Joseph Hardin | Methods (Implemented ML Models), Contribution Table, Report Website, Final Report Edits, GitHub Code Upload |
 | Abhishek Misra | Methods (Implemented ML Models), Results/Evaluation Metrics, Discussion |
 | Max Pan | Methods (Implemented ML Models), Results/Evaluation Metrics, Gantt Chart, GitHub Code Upload |
